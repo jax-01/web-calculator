@@ -8,7 +8,7 @@ const operate = function(operator, num1, num2) {
       add(num1, num2);
       break;
     case "-":
-      subtract(num1, num);
+      subtract(num1, num2);
       break;
     case "*":
       multiply(num1, num2);
