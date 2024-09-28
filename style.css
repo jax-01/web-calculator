@@ -4,3 +4,14 @@ body {
   align-items: center;
   height: 90vh;
 }
+
+#calc-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;             /* Limit the width*/
+  margin: 50px auto;
+  background-color: black;
+  border-radius: 15px;
+  overflow: hidden;
+}
