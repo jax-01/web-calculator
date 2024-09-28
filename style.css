@@ -51,6 +51,8 @@ body {
 #button-container .zero {
   width: 45%;
   border-radius: 50px;
+  justify-content: left;
+  padding-left: 26px;
 }
 
 .light-gray-bg {
