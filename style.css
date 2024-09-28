@@ -52,3 +52,17 @@ body {
   width: 45%;
   border-radius: 50px;
 }
+
+.light-gray-bg {
+  background-color: lightgray;
+  color: black;
+}
+
+.dark-gray-bg {
+  background-color: rgb(78, 78, 78);
+}
+
+.orange-bg {
+  background-color: orange;
+  color: white;
+}
