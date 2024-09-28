@@ -47,3 +47,8 @@ body {
   cursor: pointer;
   /* font-weight: bold; */
 }
+
+#button-container .zero {
+  width: 45%;
+  border-radius: 50px;
+}
