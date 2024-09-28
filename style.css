@@ -43,7 +43,14 @@ body {
   font-size: 1.5rem;
   border: none;
   border-radius: 50%;
-  color: white;
+  /* color: white; */
   cursor: pointer;
   /* font-weight: bold; */
+}
+
+#button-container .zero {
+  width: 50%;
+  border-radius: 50px;
+  justify-content: start;
+  padding-left: 30px;
 }
