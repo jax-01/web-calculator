@@ -5,6 +5,10 @@ let displayValue = "0"; // variable that will store the current value shown in t
 const display = document.querySelector("#display");
 const buttons = document.querySelectorAll(".button");
 
+function updateDisplay() {
+  display.textContent = displayValue;
+}
+
 const operate = function(operator, num1, num2) {
   switch (operator) {
     case "+":
