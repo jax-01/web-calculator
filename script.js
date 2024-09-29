@@ -1,6 +1,9 @@
 let num1;
 let num2;
 let operator;
+let displayValue = "0"; // variable that will store the current value shown in the display
+const display = document.querySelector("#display");
+const buttons = document.querySelectorAll(".button");
 
 const operate = function(operator, num1, num2) {
   switch (operator) {
