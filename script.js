@@ -9,6 +9,23 @@ function updateDisplay() {
   display.textContent = displayValue;
 }
 
+buttons.forEach(button => {
+  // check if it is a number button or a decimal point
+  if (!isNaN(button.textContent) || button.textContent === ".") {
+    button.addEventListener("click", (event) => {
+      // get the digit
+      const buttonText = event.target.textContent;
+      if (displayValue === "0") {
+        displayValue = buttonText;
+      } else {
+        displayValue += buttonText;
+      }
+
+      updateDisplay();
+    });
+  }
+});
+
 const operate = function(operator, num1, num2) {
   switch (operator) {
     case "+":
