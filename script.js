@@ -1,7 +1,7 @@
-let num1;
-let num2;
-let operator;
-let displayValue = "0"; // variable that will store the current value shown in the display
+let num1 = null;
+let num2 = null;
+let operator = null;
+let displayValue = "0"; // holds the value that will be shown in the display
 let shouldClearDisplay = false;
 const display = document.querySelector("#display");
 const buttons = document.querySelectorAll(".button");
@@ -54,6 +54,15 @@ buttons.forEach(button => {
       } else {
         displayValue = displayValue === "0" ? buttonText : displayValue + buttonText;
       }
+      updateDisplay();
+    });
+  } else if (buttonText === "C") {
+    button.addEventListener("click", () => {
+      displayValue = "0";
+      num1 = null;
+      num2 = null;
+      operator = null;
+      shouldClearDisplay = false;
       updateDisplay();
     });
   }
