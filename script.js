@@ -11,15 +11,17 @@ function updateDisplay() {
 }
 
 const operate = function(operator, num1, num2) {
+  const firstVal = parseFloat(num1);
+  const secondVal = parseFloat(num2);
   switch (operator) {
     case "+":
-      return add(num1, num2);
+      return add(firstVal, secondVal);
     case "-":
-      return subtract(num1, num2);
-    case "*":
-      return multiply(num1, num2);
+      return subtract(firstVal, secondVal);
+    case "x":
+      return multiply(firstVal, secondVal);
     case "/":
-      return divide(num1, num2);
+      return divide(firstVal, secondVal);
     default:
       return;
   }
