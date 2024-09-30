@@ -76,5 +76,19 @@ buttons.forEach(button => {
       num2 = null;
       operator = null;
     });
+  } else {  // Operators button
+    button.addEventListener("click", () => {
+      // check if there are more than 1 pair
+      if (operator !== null && num1 !== null) {
+        num2 = displayValue;
+        displayValue = operate(operator, num1, num2);
+        updateDisplay();
+        num1 = displayValue;  // the result becomes the new num1
+      } else {
+        num1 = displayValue;
+      }
+      operator = buttonText;
+      shouldClearDisplay = true;  // clear the display for the next number
+    });
   }
 });
