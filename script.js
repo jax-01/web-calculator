@@ -56,7 +56,7 @@ buttons.forEach(button => {
       }
       updateDisplay();
     });
-  } else if (buttonText === "C") {
+  } else if (buttonText === "C") {  // Clear button
     button.addEventListener("click", () => {
       displayValue = "0";
       num1 = null;
@@ -64,6 +64,17 @@ buttons.forEach(button => {
       operator = null;
       shouldClearDisplay = false;
       updateDisplay();
+    });
+  } else if (buttonText === "=") {  // Equal sign button
+    button.addEventListener("click", () => {
+      if (operator === null || num1 === null) return;
+
+      num2 = displayValue;
+      displayValue = operate(operator, num1, num2);
+      updateDisplay();
+      num1 = null;
+      num2 = null;
+      operator = null;
     });
   }
 });
