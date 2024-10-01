@@ -84,6 +84,11 @@ buttons.forEach(button => {
       // displayValue = parseFloat(displayValue) * -1;
       updateDisplay();
     });
+  } else if (buttonText === "%") {
+    button.addEventListener("click", () => {
+      displayValue = Number(Math.round((parseFloat(displayValue) / 100)+'e10')+'e-10');
+      updateDisplay();
+    });
   } else {  // Operators button
     button.addEventListener("click", () => {
       // check if there are more than 1 pair
