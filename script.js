@@ -78,6 +78,12 @@ buttons.forEach(button => {
       num2 = null;
       operator = null;
     });
+  } else if (buttonText === "+/-") {
+    button.addEventListener("click", () => {
+      displayValue = displayValue === "0" ? "0" : parseFloat(displayValue) * -1;
+      // displayValue = parseFloat(displayValue) * -1;
+      updateDisplay();
+    });
   } else {  // Operators button
     button.addEventListener("click", () => {
       // check if there are more than 1 pair
