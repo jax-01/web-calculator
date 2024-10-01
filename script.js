@@ -3,6 +3,8 @@ let num2 = null;
 let operator = null;
 let displayValue = "0"; // holds the value that will be shown in the display
 let shouldClearDisplay = false;
+let decimalUsed = false;
+const decimalButton = document.querySelector(".button[data-decimal]");
 const display = document.querySelector("#display");
 const buttons = document.querySelectorAll(".button");
 
@@ -47,16 +49,27 @@ const divide = function(num1, num2) {
 buttons.forEach(button => {
   // get the button clicked
   const buttonText = button.textContent;
-  // check if it is a number button or a decimal point
-  if (!isNaN(buttonText) || buttonText === ".") {
+  // check if it is a number button
+  if (!isNaN(buttonText)) {
     button.addEventListener("click", () => {
       if (shouldClearDisplay) {
         displayValue = buttonText;
         shouldClearDisplay = false;
+        decimalUsed = false;              // allow decimal button again when a new number starts
+        decimalButton.disabled = false;   // enable the decimal button
       } else {
         displayValue = displayValue === "0" ? buttonText : displayValue + buttonText;
       }
       updateDisplay();
+    });
+  } else if (buttonText === ".") {
+    button.addEventListener("click", () => {
+      if (!decimalUsed) {
+        displayValue += buttonText;
+        decimalUsed = true;             // the decimal button is used
+        decimalButton.disabled = true;  // disable the decimal button
+        updateDisplay();
+      }
     });
   } else if (buttonText === "C") {  // Clear button
     button.addEventListener("click", () => {
@@ -65,6 +78,8 @@ buttons.forEach(button => {
       num2 = null;
       operator = null;
       shouldClearDisplay = false;
+      decimalUsed = false;              // reset decimal flag
+      decimalButton.disabled = false;   // enable the decimal button again
       updateDisplay();
     });
   } else if (buttonText === "=") {  // Equal sign button
@@ -77,6 +92,8 @@ buttons.forEach(button => {
       num1 = null;
       num2 = null;
       operator = null;
+      decimalUsed = false;              // reset decimal flag
+      decimalButton.disabled = false;   // enable the decimal button again
     });
   } else if (buttonText === "+/-") {
     button.addEventListener("click", () => {
@@ -101,7 +118,9 @@ buttons.forEach(button => {
         num1 = displayValue;
       }
       operator = buttonText;
-      shouldClearDisplay = true;  // clear the display for the next number
+      shouldClearDisplay = true;      // clear the display for the next number
+      decimalUsed = false;            // allow the use of decimal again after an operator is clicked
+      decimalButton.disabled = false; // enable the decimal butto again
     });
   }
 });
